@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.12.1 on linux)" generated="2026-07-09T21:09:15.582741" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Selenium" source="/workspaces/Testing2/Robot-demo/test_selenium.robot">
+<test id="s1-t1" name="PRC-33: Crear un nuevo usuario (Signup)" line="35">
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2026-07-09T21:09:15.822514" level="INFO">Creating Session using : alias=shop, url=https://automationexercise.com, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 'Accept': '*/*'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>shop</arg>
+<arg>${URL_BASE}</arg>
+<arg>headers=${HEADERS}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2026-07-09T21:09:15.822104" elapsed="0.000688"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2026-07-09T21:09:15.823719" level="INFO">&amp;{signup_data} = { name=Alejandro | email=ale_nuevo_1234@gmail.com }</msg>
+<var>&amp;{signup_data}</var>
+<arg>name=Alejandro</arg>
+<arg>email=ale_nuevo_1234@gmail.com</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2026-07-09T21:09:15.823165" elapsed="0.000589"/>
+</kw>
+<kw name="POST On Session" owner="RequestsLibrary">
+<msg time="2026-07-09T21:09:16.207185" level="INFO">POST Request : url=https://automationexercise.com/signup 
+ path_url=/signup 
+ headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '47', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=name=Alejandro&amp;email=ale_nuevo_1234%40gmail.com 
+ </msg>
+<msg time="2026-07-09T21:09:16.207344" level="INFO">POST Response : url=https://automationexercise.com/signup 
+ status=403, reason=Forbidden 
+ headers={'Date': 'Thu, 09 Jul 2026 21:09:16 GMT', 'Content-Type': 'text/html', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Referrer-Policy': 'same-origin', 'X-Frame-Options': 'DENY', 'X-Content-Type-Options': 'nosniff', 'X-Powered-By': 'Phusion Passenger(R) 6.1.2', 'Status': '403 Forbidden', 'Server': 'cloudflare', 'Cf-Cache-Status': 'DYNAMIC', 'Report-To': '{"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=iJcLip1AT1ifMhowG1KIWYV7J4wjP%2BkjinZB%2BfNBhBHSrk%2BnxpTdSLJRUM4NVAwgRbmdo7mCp8Nrv5Jae7vzlxPZC9%2FEN0CcQpLIGv6ja%2FqQkrq6AEE3e3%2BNg%2BBKEu0%2BK398%2F8AZ7C3Q"}]}', 'Nel': '{"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}', 'Content-Encoding': 'gzip', 'CF-RAY': 'a18a4f05a88ad703-IAD', 'alt-svc': 'h3=":443"; ma=86400'} 
+ body=
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+  &lt;meta name="robots" content="NONE,NOARCHIVE"&gt;
+  &lt;title&gt;403 Forbidden&lt;/title&gt;
+  &lt;style type="text/css"&gt;
+    html * { padding:0; margin:0; }
+    body * { padding:10px 20px; }
+    body * * { padding:0; }
+    body { font:small sans-serif; background:#eee; color:#000; }
+    body&gt;div { border-bottom:1px solid #ddd; }
+    h1 { font-weight:normal; margin-bottom:.4em; }
+    h1 span { font-size:60%; color:#666; font-weight:normal; }
+    #info { background:#f6f6f6; }
+    #info ul { margin: 0.5em 4em; }
+    #info p, #summary p { padding-top:10px; }
+    #summary { background: #ffc; }
+    #explanation { background:#eee; border-bottom: 0px none; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id="summary"&gt;
+  &lt;h1&gt;Forbidden &lt;span&gt;(403)&lt;/span&gt;&lt;/h1&gt;
+  &lt;p&gt;CSRF verification failed. Request aborted.&lt;/p&gt;
+
+  &lt;p&gt;You are seeing this message because this HTTPS site requires a âReferer headerâ to be sent by your Web browser, but none was sent. This header is required for security reasons, to ensure that your browser is not being hijacked by third parties.&lt;/p&gt;
+  &lt;p&gt;If you have configured your browser to disable âRefererâ headers, please re-enable them, at least for this site, or for HTTPS connections, or for âsame-originâ requests.&lt;/p&gt;
+  &lt;p&gt;If you are using the &amp;lt;meta name=&amp;quot;referrer&amp;quot; content=&amp;quot;no-referrer&amp;quot;&amp;gt; tag or including the âReferrer-Policy: no-referrerâ header, please remove them. The CSRF protection requires the âRefererâ header to do strict referer checking. If youâre concerned about privacy, use alternatives like &amp;lt;a rel=&amp;quot;noreferrer&amp;quot; â¦&amp;gt; for links to third-party sites.&lt;/p&gt;
+
+
+&lt;/div&gt;
+
+&lt;div id="info"&gt;
+  &lt;h2&gt;Help&lt;/h2&gt;
+    
+    &lt;p&gt;Reason given for failure:&lt;/p&gt;
+    &lt;pre&gt;
+    Referer checking failed - no Referer.
+    &lt;/pre&gt;
+    
+
+  &lt;p&gt;In general, this can occur when there is a genuine Cross Site Request Forgery, or when
+  &lt;a
+  href="https://docs.djangoproject.com/en/3.2/ref/csrf/"&gt;Djangoâs
+  CSRF mechanism&lt;/a&gt; has not been used correctly.  For POST forms, you need to
+  ensure:&lt;/p&gt;
+
+  &lt;ul&gt;
+    &lt;li&gt;Your browser is accepting cookies.&lt;/li&gt;
+
+    &lt;li&gt;The view function passes a &lt;code&gt;request&lt;/code&gt; to the templateâs &lt;a
+    href="https://docs.djangoproject.com/en/dev/topics/templates/#django.template.backends.base.Template.render"&gt;&lt;code&gt;render&lt;/code&gt;&lt;/a&gt;
+    method.&lt;/li&gt;
+
+    &lt;li&gt;In the template, there is a &lt;code&gt;{% csrf_token
+    %}&lt;/code&gt; template tag inside each POST form that
+    targets an internal URL.&lt;/li&gt;
+
+    &lt;li&gt;If you are not using &lt;code&gt;CsrfViewMiddleware&lt;/code&gt;, then you must use
+    &lt;code&gt;csrf_protect&lt;/code&gt; on any views that use the &lt;code&gt;csrf_token&lt;/code&gt;
+    template tag, as well as those that accept the POST data.&lt;/li&gt;
+
+    &lt;li&gt;The form has a valid CSRF token. After logging in in another browser
+    tab or hitting the back button after a login, you may need to reload the
+    page with the form, because the token is rotated after a login.&lt;/li&gt;
+  &lt;/ul&gt;
+
+  &lt;p&gt;Youâre seeing the help section of this page because you have &lt;code&gt;DEBUG =
+  True&lt;/code&gt; in your Django settings file. Change that to &lt;code&gt;False&lt;/code&gt;,
+  and only the initial error message will be displayed.  &lt;/p&gt;
+
+  &lt;p&gt;You can customize this page using the CSRF_FAILURE_VIEW setting.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+ 
+ </msg>
+<msg time="2026-07-09T21:09:16.207556" level="INFO">/home/codespace/.local/lib/python3.12/site-packages/urllib3/connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'automationexercise.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2026-07-09T21:09:16.207815" level="INFO">${response} = &lt;Response [403]&gt;</msg>
+<var>${response}</var>
+<arg>shop</arg>
+<arg>/signup</arg>
+<arg>data=${signup_data}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2026-07-09T21:09:15.824042" elapsed="0.383807"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>[PASS] PRC-33: Datos de Nuevo Registro (nombre y email) enviados correctamente.</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2026-07-09T21:09:16.208152" elapsed="0.000667"/>
+</kw>
+<doc>Objetivo: Verificar el envío de datos iniciales para registrar una cuenta nueva.</doc>
+<status status="PASS" start="2026-07-09T21:09:15.820590" elapsed="0.388533"/>
+</test>
+<doc>Suite de Pruebas Automatizadas - Automation Exercise (Modo Seguro Completo)</doc>
+<status status="PASS" start="2026-07-09T21:09:15.583954" elapsed="0.625980"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Selenium" id="s1" pass="1" fail="0" skip="0">Test Selenium</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
